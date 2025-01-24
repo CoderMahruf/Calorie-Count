@@ -33,19 +33,29 @@
             </div>
         </div>
         <div class="row">
-
+            <div class="col-md-6">
+                <h4>Todays Consumption</h4>
+            </div>
+            <table id="table" class="table table-striped table-primary">
+                <tr>
+                    <th>Food Item</th>
+                    <th>Carbohydrate(gm)</th>
+                    <th>Protein(gm)</th>
+                    <th>Fat(gm)</th>
+                    <th>Calories(Kcal)</th>
+                </tr>
+                {% for c in consumed_food %}
+                <tr>
+                    <td>{{c.food_consumed.name}}</td>
+                    <td>{{c.food_consumed.carbs}}</td>
+                    <td>{{c.food_consumed.protein}}</td>
+                    <td>{{c.food_consumed.fats}}</td>
+                    <td>{{c.food_consumed.calories}}</td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
     </div>
-
-
-
-
-
-
-    {% for c in consumed_food %}
-    {{c.food_consumed.name}}--> {{c.food_consumed.carbs}}--> {{c.food_consumed.protein}}--> {{c.food_consumed.fats}}-->
-    {{c.food_consumed.calories}} <br>
-    {% endfor %}
 </body>
 
 </html>
