@@ -69,6 +69,7 @@
                     <th>Protein(gm)</th>
                     <th>Fat(gm)</th>
                     <th>Calories(Kcal)</th>
+                    <th>Remove Item</th>
                 </tr>
                 {% for c in consumed_food %}
                 <tr>
@@ -77,6 +78,7 @@
                     <td>{{c.food_consumed.protein}}</td>
                     <td>{{c.food_consumed.fats}}</td>
                     <td>{{c.food_consumed.calories}}</td>
+                    <td><a class="btn btn-danger" href="{% url 'delete' c.id %}">Remove</a> </td>
                 </tr>
                 {% endfor %}
                 <tr>
@@ -133,7 +135,7 @@
     new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Carbs '+carbsP+"%", 'Protein '+proteinP+"%", 'Fats '+fatsP+"%"],
+            labels: ['Carbs ' + carbsP + "%", 'Protein ' + proteinP + "%", 'Fats ' + fatsP + "%"],
             datasets: [{
                 label: '# of Votes',
                 data: [carbsP, proteinP, fatsP],
