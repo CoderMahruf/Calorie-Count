@@ -78,7 +78,7 @@
                     <td>{{c.food_consumed.protein}}</td>
                     <td>{{c.food_consumed.fats}}</td>
                     <td>{{c.food_consumed.calories}}</td>
-                    <td><a class="btn btn-danger" href="{% url 'delete' c.id %}">Remove</a> </td>
+                    <td><a class="btn btn-danger" href="{% url 'delete' c.id %}">X</a> </td>
                 </tr>
                 {% endfor %}
                 <tr>
@@ -89,7 +89,7 @@
                     <td id="totalCalories"><b></b></td>
                 </tr>
             </table>
-            <div class="col-md-5 offset-1">
+            <div class="col-md-5 offset-3">
                 <div class="">
                     <h4>Today's breakdown</h4>
                 </div>
@@ -137,7 +137,7 @@
         data: {
             labels: ['Carbs ' + carbsP + "%", 'Protein ' + proteinP + "%", 'Fats ' + fatsP + "%"],
             datasets: [{
-                label: '# of Votes',
+                label: '# of Persent',
                 data: [carbsP, proteinP, fatsP],
                 borderWidth: 1
             }]
