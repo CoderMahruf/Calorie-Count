@@ -53,9 +53,36 @@
                     <td>{{c.food_consumed.calories}}</td>
                 </tr>
                 {% endfor %}
+                <tr>
+                    <td id="name"><b>Total</b></td>
+                    <td id="totalCarbs"><b></b></td>
+                    <td id="totalProtein"><b></b></td>
+                    <td id="totalFat"><b></b></td>
+                    <td id="totalCalories"><b></b></td>
+                </tr>
             </table>
         </div>
     </div>
 </body>
+<script>
+    var table = document.getElementById("table");
+    var carbs=0,protein=0,fats=0,calories=0;
 
+    for(var i=1;i<table.rows.length-1;i++){
+        console.log(table.rows[i].cells[1].innerHTML);
+        carbs += parseFloat(table.rows[i].cells[1].innerHTML);
+        carbs = Math.round(carbs);
+        protein += parseFloat(table.rows[i].cells[2].innerHTML);
+        protein = Math.round(protein);
+        fats += parseFloat(table.rows[i].cells[3].innerHTML);
+        fats = Math.round(fats);
+        calories += parseFloat(table.rows[i].cells[4].innerHTML);
+        calories = Math.round(calories);
+    }
+    console.log(fats)
+    document.getElementById("totalCarbs").innerHTML = carbs;
+    document.getElementById("totalProtein").innerHTML = protein;
+    document.getElementById("totalFat").innerHTML = fats;
+    document.getElementById("totalCalories").innerHTML = calories;
+</script>
 </html>
